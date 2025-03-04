@@ -20,6 +20,7 @@ const FormBuilder = ({
     formProps,
     showPreviewTab,
     theme = themeTypes.light,
+    tabBarExtraContent = null,
     ...props
 }) => {
     const isDarkTheme = theme === "dark";
@@ -43,15 +44,15 @@ const FormBuilder = ({
     }, []);
     return (
         <DndProvider backend={HTML5Backend}>
-            <ConfigProvider
-                theme={{
-                    algorithm: isDarkTheme ? ANTDTheme.darkAlgorithm : ANTDTheme.defaultAlgorithm
-                }}
-            >
+            <ConfigProvider theme={{ algorithm: isDarkTheme ? ANTDTheme.darkAlgorithm : ANTDTheme.defaultAlgorithm }}>
                 <FormBuilderContext.Provider value={{ elements, setElements, updateFormElement, isDarkTheme }}>
                     {showPreviewTab ? (
                         <>
-                            <Tabs defaultActiveKey="1" centered>
+                            <Tabs
+                                defaultActiveKey="1"
+                                centered
+                                tabBarExtraContent={tabBarExtraContent}
+                            >
                                 <TabPane tab="Editor" key="1">
                                     <Layout
                                         style={{ height: "100%", display: "flex", alignItems: "stretch", gap: "10px" }}
@@ -59,13 +60,7 @@ const FormBuilder = ({
                                         <Sider theme={theme} width={250} breakpoint="md" collapsedWidth={0}>
                                             <Toolbar toolbarItems={toolbarItems} fieldProps={fieldProps} />
                                         </Sider>
-                                        <Content
-                                            style={{
-                                                padding: 24,
-                                                margin: 0,
-                                                minHeight: 280
-                                            }}
-                                        >
+                                        <Content style={{ padding: 24, margin: 0, minHeight: 280 }}>
                                             <DropZone
                                                 elements={elements}
                                                 onUpdate={updateFormElement}
@@ -112,13 +107,7 @@ const FormBuilder = ({
                             >
                                 <Toolbar toolbarItems={toolbarItems} fieldProps={fieldProps} />
                             </Sider>
-                            <Content
-                                style={{
-                                    padding: 24,
-                                    margin: 0,
-                                    minHeight: 280
-                                }}
-                            >
+                            <Content style={{ padding: 24, margin: 0, minHeight: 280 }}>
                                 <DropZone elements={elements} onUpdate={updateFormElement} formProps={formProps} />
                             </Content>
                         </Layout>
@@ -132,12 +121,7 @@ const FormBuilder = ({
 FormBuilder.defaultProps = {
     fields: [],
     showPreviewTab: true,
-    formProps: {
-        labelAlign: "left",
-        colon: true,
-        requiredMark: true,
-        labelCol: { span: 5 }
-    }
+    formProps: { labelAlign: "left", colon: true, requiredMark: true, labelCol: { span: 5 } }
 };
 FormBuilder.propTypes = {
     fields: PropTypes.array,
