@@ -17,9 +17,7 @@ const SortableElement = ({ element, index, onMove, onEdit, onDelete, onEditPrope
     const [{ handlerId }, drop] = useDrop({
         accept: ItemTypes.BOX,
         collect(monitor) {
-            return {
-                handlerId: monitor.getHandlerId()
-            };
+            return { handlerId: monitor.getHandlerId() };
         },
         hover(item, monitor) {
             if (!ref.current) {
@@ -62,9 +60,7 @@ const SortableElement = ({ element, index, onMove, onEdit, onDelete, onEditPrope
         item: () => {
             return { id: element.id, index: index };
         },
-        collect: (monitor) => ({
-            isDragging: monitor.isDragging()
-        })
+        collect: (monitor) => ({ isDragging: monitor.isDragging() })
     });
 
     const editHandler = (e) => {
@@ -96,14 +92,16 @@ const SortableElement = ({ element, index, onMove, onEdit, onDelete, onEditPrope
             <div className={classes.formitem}>
                 <FormElement element={element} onAnyChange={handlePropertyChange} />
             </div>
-            <div className={classes.action} style={{ display: showAction ? "block" : "none" }}>
-                <Button type="link" onClick={editHandler}>
-                    <i className="fas fa-edit"></i>
-                </Button>
-                <Button type="link" danger onClick={deleteHandler}>
-                    <i className="fas fa-trash"></i>
-                </Button>
-            </div>
+            {!element?.readonly && (
+                <div className={classes.action} style={{ display: showAction ? "block" : "none" }}>
+                    <Button type="link" onClick={editHandler}>
+                        <i className="fas fa-edit"></i>
+                    </Button>
+                    <Button type="link" danger onClick={deleteHandler}>
+                        <i className="fas fa-trash"></i>
+                    </Button>
+                </div>
+            )}
         </div>
     );
 };

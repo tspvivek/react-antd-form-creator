@@ -19,7 +19,7 @@ const FormBuilder = ({
     fieldProps,
     formProps,
     showPreviewTab,
-    theme = themeTypes.dark,
+    theme = themeTypes.light,
     ...props
 }) => {
     const isDarkTheme = theme === "dark";

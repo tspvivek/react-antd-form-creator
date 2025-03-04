@@ -57,7 +57,8 @@ const argsTempPreLoaded = {
             content: "Header",
             id: "b8d264c4-ea10-4dd0-990e-6ad4ca090c42",
             type: "Header",
-            field_name: "field_de8ce171-8877-4f70-9173-57e6f2668a9d"
+            field_name: "field_de8ce171-8877-4f70-9173-57e6f2668a9d",
+            readonly: true
         },
         {
             dropEffect: "move",
@@ -285,7 +286,10 @@ const argsTempPreLoaded = {
         requiredMark: true,
         labelCol: { span: 5 }
     },
-    toolbarItems: FormItems.filter((item) => item.key === "Header" || item.key === "Paragraph")
+    toolbarItems: FormItems.filter((item) => item.key === "Header" || item.key === "Paragraph"),
+    onUpdate: function (fields) {
+        console.log(fields);
+    }
 };
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

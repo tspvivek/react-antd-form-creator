@@ -3,7 +3,7 @@ import { FormElement } from "../elements";
 import { theme as ANTDTheme, ConfigProvider, Layout } from "antd";
 
 const FormRenderer = ({ elements, form, theme = "light", ...props }) => {
-    const isDarkTheme = theme !== "dark";
+    const isDarkTheme = theme == "dark";
     return (
         <>
             <ConfigProvider

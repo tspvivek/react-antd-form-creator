@@ -5,12 +5,7 @@ const FormItems = [
         icon: "fas fa-heading",
         fieldProps: {
             content: "Header",
-            level: {
-                type: "number",
-                value: 1,
-                max: 6,
-                min: 1
-            },
+            level: { type: "number", value: 1, max: 6, min: 1 },
             align: {
                 type: "select",
                 value: "center",
@@ -44,12 +39,9 @@ const FormItems = [
         key: "LineBreak",
         name: "Line Break",
         icon: "fas fa-arrows-alt-h",
-        fieldProps: {
-            content: "Divider",
-            plain: false,
-            dashed: false
-        }
+        fieldProps: { content: "Divider", plain: false, dashed: false }
     },
+    /*
     {
         key: "Image",
         name: "Image",
@@ -59,7 +51,7 @@ const FormItems = [
             src: "",
             alt: "Update URL"
         }
-    },
+    },*/
     {
         key: "Dropdown",
         name: "Dropdown",
@@ -192,6 +184,7 @@ const FormItems = [
             rules: [{ required: false, message: "Please select time" }]
         }
     },
+    /*
     {
         key: "Signature",
         name: "Signature",
@@ -227,6 +220,7 @@ const FormItems = [
             rules: [{ required: false, message: "Upload atleast one file" }]
         }
     },
+    */
     {
         key: "Range",
         name: "Range",
@@ -241,8 +235,6 @@ const FormItems = [
             maxLabel: "Difficult"
         }
     },
-
-    ,
     // {
     //   key: "Phone",
     //   name: "Phone",
@@ -253,6 +245,7 @@ const FormItems = [
     //   },
     // },
 
+    /*
     {
         key: "Table",
         name: "Table",
@@ -286,6 +279,7 @@ const FormItems = [
             autoAddLastRow: false
         }
     }
+        */
     // {
     //     key: 'TwoColumnRow',
     //     name: 'Two Column Row',
@@ -316,6 +310,7 @@ const FormItems = [
     //         label: '',
     //     }
     // }
+    ,
 ];
 
 export default FormItems;
