@@ -1,6 +1,6 @@
 {
-    "name": "react-antd-form-creator",
-    "version": "0.3.8",
+    "name": "@tspvivek/react-antd-form-creator",
+    "version": "0.0.2",
     "description": "Allow to build form using drag and drop component specifically build for antd",
     "author": "Vivek Palanisamy",
     "license": "MIT",
@@ -13,6 +13,9 @@
     },
     "bugs": {
         "url": "https://github.com/tspvivek/react-antd-form-creator/issues"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "peerDependencies": {
         "@fortawesome/fontawesome-free": "^6.6.0",

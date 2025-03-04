@@ -4,11 +4,11 @@
 
 ### Install
 
-`npm install react-antd-form-creator`
+`npm install @tspvivek/react-antd-form-creator`
 
 or 
 
-`yarn add react-antd-form-creator`
+`yarn add @tspvivek/react-antd-form-creator`
 
 
 ### Demo/StoryBook
