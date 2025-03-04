@@ -18,13 +18,17 @@ import {
 import Signature from "./signature";
 import Upload from "./Upload";
 import EditableTable from "./EditableTable";
+import { generateValidationRules } from "../Utils";
 
 const FormElement = ({ element, onAnyChange }) => {
     const { hidden, dropEffect, type, id, label, field_name, rules, ...data } = element;
 
+    // Process the validation rules
+    const formRules = generateValidationRules(rules);
+
     const wrapFormItem = (children) => {
         return (
-            <Form.Item hidden={hidden} label={label} key={field_name} name={field_name} rules={rules}>
+            <Form.Item hidden={hidden} label={label} key={field_name} name={field_name} rules={formRules}>
                 {children}
             </Form.Item>
         );

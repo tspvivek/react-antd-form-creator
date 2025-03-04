@@ -4,6 +4,7 @@ import Columns from "./Columns";
 import Options from "./options";
 import Rules from "./rules";
 import CustomField from "./customField";
+import CustomValidationRules from "./CustomValidationRules";
 
 const camel2title = (camelCase) => {
     if (Array.isArray(camelCase)) camelCase = camelCase[camelCase.length - 1];
@@ -97,6 +98,11 @@ const renderField = (name, value, nonEditableProperties = [], props = {}) => {
                 return <Options key={name} name={["options"]}></Options>;
             }
             if (name === "rules") {
+                // For text inputs, we'll use our custom validation rules
+                if (props.elementType === "TextInput") {
+                    return <CustomValidationRules key={name} name={["rules"]} />;
+                }
+                // For other elements, use the standard rules component
                 return <Rules key={name} name={["rules"]} value={value}></Rules>;
             }
             if (name === "columns") {
