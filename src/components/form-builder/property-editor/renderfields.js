@@ -95,7 +95,7 @@ const renderField = (name, value, nonEditableProperties = [], props = {}) => {
             );
         case "object":
             if (name === "options") {
-                return <Options key={name} name={["options"]}></Options>;
+                return <Options key={name} name={["options"]} form={props.form}></Options>;
             }
             if (name === "rules") {
                 // For text inputs, we'll use our custom validation rules
